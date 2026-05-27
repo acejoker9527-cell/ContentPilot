@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>增长营销方案 - 高端定制旅游</title>
+<style>
+  @page { size: 297mm 210mm landscape; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; color: #1a1a2e; line-height: 1.8; background: #e8e8e8; }
+  .slide { width: 297mm; height: 210mm; margin: 0 auto; padding: 14mm 18mm; page-break-after: always; position: relative; overflow: hidden; background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+  .slide:last-child { page-break-after: auto; }
+
+  .slide-cover { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+  .slide-cover .logo { font-size: 16px; letter-spacing: 6px; opacity: 0.5; margin-bottom: 24px; text-transform: uppercase; }
+  .slide-cover h1 { font-size: 44px; font-weight: 800; margin-bottom: 12px; }
+  .slide-cover .subtitle { font-size: 22px; opacity: 0.85; margin-bottom: 28px; }
+  .slide-cover .meta { display: flex; gap: 50px; font-size: 16px; opacity: 0.7; }
+  .slide-cover .meta span { display: flex; flex-direction: column; align-items: center; }
+  .slide-cover .meta strong { font-size: 22px; color: #e94560; margin-bottom: 4px; }
+  .slide-cover .footer { position: absolute; bottom: 12mm; font-size: 13px; opacity: 0.4; }
+
+  .slide-title { font-size: 26px; font-weight: 700; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 3px solid #e94560; }
+  .slide-title .num { color: #e94560; margin-right: 8px; }
+  .page-num { position: absolute; bottom: 6mm; right: 14mm; font-size: 11px; color: #ccc; }
+
+  .card-row { display: flex; gap: 14px; margin-bottom: 12px; }
+  .card { flex: 1; background: #f8f9fa; border-radius: 10px; padding: 16px; border-left: 4px solid #e94560; }
+  .card h3 { font-size: 13px; color: #999; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px; }
+  .card p { font-size: 15px; color: #333; line-height: 1.8; }
+  .card.blue { border-left-color: #0f3460; }
+  .card.green { border-left-color: #16a085; }
+  .card.orange { border-left-color: #e67e22; }
+
+  table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 14px; }
+  th { background: #1a1a2e; color: #fff; padding: 10px 14px; text-align: left; font-weight: 600; font-size: 13px; letter-spacing: 1px; }
+  td { padding: 10px 14px; border-bottom: 1px solid #eee; }
+  tr:nth-child(even) td { background: #fafafa; }
+
+  .bar-wrap { margin: 8px 0; display: flex; align-items: center; gap: 14px; }
+  .bar-label { width: 130px; font-size: 15px; text-align: right; flex-shrink: 0; color: #555; }
+  .bar-track { flex: 1; height: 28px; background: #eee; border-radius: 14px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 14px; display: flex; align-items: center; justify-content: flex-end; padding-right: 12px; font-size: 14px; color: #fff; font-weight: 600; }
+  .bar-fill.red { background: #e94560; }
+  .bar-fill.blue { background: #0f3460; }
+  .bar-fill.green { background: #16a085; }
+  .bar-fill.orange { background: #e67e22; }
+
+  .tag { display: inline-block; padding: 3px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; margin: 2px; }
+  .tag-red { background: #fde8ec; color: #e94560; }
+  .tag-blue { background: #e8ecf4; color: #0f3460; }
+  .tag-green { background: #e8f6f3; color: #16a085; }
+  .tag-dark { background: #e8e8e8; color: #333; }
+
+  .highlight { background: linear-gradient(135deg, #fff0f0, #fff8f8); border-left: 4px solid #e94560; border-radius: 8px; padding: 20px 24px; margin: 12px 0; }
+  .highlight p { font-size: 22px; font-weight: 700; color: #e94560; }
+
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before { content: ""; position: absolute; left: 7px; top: 0; bottom: 0; width: 2px; background: #e0e0e0; }
+  .tl-item { margin-bottom: 16px; position: relative; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 5px; width: 10px; height: 10px; border-radius: 50%; background: #e94560; border: 2px solid #fff; box-shadow: 0 0 0 2px #e94560; }
+  .tl-item h4 { font-size: 16px; margin-bottom: 3px; color: #1a1a2e; }
+  .tl-item p { font-size: 15px; color: #555; line-height: 1.8; }
+
+  .two-col { display: flex; gap: 24px; }
+  .two-col > div { flex: 1; }
+
+  .platform-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .p-card { border-radius: 10px; padding: 16px; }
+  .p-card.dy { background: #f8f8f8; border: 1px solid #e0e0e0; }
+  .p-card.zh { background: #f5f8ff; border: 1px solid #d0e3ff; }
+  .p-card.xhs { background: #fff5f5; border: 1px solid #ffd4d4; }
+  .p-card.sph { background: #f5fdf8; border: 1px solid #c8e6c9; }
+  .p-card.bili { background: #fff8f5; border: 1px solid #ffe0d0; }
+  .p-card.siyu { background: #f8f5ff; border: 1px solid #e0d0ff; }
+  .p-card h3 { font-size: 17px; margin-bottom: 6px; }
+  .p-card p { font-size: 14px; color: #555; line-height: 1.9; }
+
+  .star { color: #f0b90b; font-size: 14px; letter-spacing: 1px; }
+
+  .insight-box { background: #1a1a2e; color: #fff; border-radius: 10px; padding: 18px 24px; margin: 12px 0; }
+  .insight-box h3 { font-size: 13px; opacity: 0.5; letter-spacing: 1px; margin-bottom: 4px; }
+  .insight-box p { font-size: 16px; line-height: 1.9; opacity: 0.95; }
+
+  .section-label { font-size: 14px; color: #999; letter-spacing: 1.5px; margin-bottom: 6px; margin-top: 14px; }
+
+  .layout-left-right { display: flex; gap: 24px; }
+  .layout-left-right .left { flex: 1.3; }
+  .layout-left-right .right { flex: 1; }
+
+  @media print {
+    body { background: #fff; }
+    .slide { box-shadow: none !important; margin: 0 !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 第1页：封面 -->
+<div class="slide slide-cover">
+  <div class="logo">ContentPilot · 增长营销方案</div>
+  <h1>高端定制旅游</h1>
+  <div class="subtitle">内容增长 & KOL 投放策略方案</div>
+  <div class="meta">
+    <span><strong>高端旅游</strong>行业</span>
+    <span><strong>10k-30k 元</strong>客单价</span>
+    <span><strong>获取客户</strong>目标</span>
+  </div>
+  <div class="footer">2026-05-27 · 由 ContentPilot AI 生成</div>
+</div>
+
+<!-- 第2页：项目概览 -->
+<div class="slide">
+  <div class="slide-title"><span class="num">01</span> 项目概览</div>
+  <div class="card-row">
+    <div class="card">
+      <h3>产品信息</h3>
+      <p><strong>高端定制旅游</strong></p>
+      <p>为 35-50 岁精英男性定制小众、高品质旅行路线，覆盖全球小众目的地</p>
+      <p><span class="tag tag-red">独家小众资源</span><span class="tag tag-blue">省心一站式</span></p>
+    </div>
+    <div class="card blue">
+      <h3>目标用户画像</h3>
+      <p><strong>35-50 岁男性为主</strong></p>
+      <p>一二线城市 · 中高收入阶层</p>
+      <p>有家庭有事业，时间珍贵，追求品质与效率</p>
+    </div>
+    <div class="card green">
+      <h3>商业目标</h3>
+      <p><span class="tag tag-red">获取客户</span></p>
+      <p>客单价：<strong>10,000 - 30,000 元</strong></p>
+      <p>决策周期：约 2-4 周，偏理性对比</p>
+    </div>
+  </div>
+  <div class="insight-box">
+    <h3>核心洞察</h3>
+    <p>市面上 90% 的旅行内容都在瞄准女性用户，<strong>男性高端旅行内容几乎完全空白 —— 这是一片巨大蓝海。谁先在这个赛道建立内容壁垒，谁就能低成本锁定精准客户。</strong></p>
+  </div>
+  <div style="font-size:15px;color:#555;line-height:1.9;">
+    <strong>购买驱动：</strong>省时间（不想自己做攻略）→ 追求独家体验（别人去不了的地方）→ 更专业（玩得更深）→ 避坑省心
+    <br><strong>用户恐惧：</strong>行程安排不合理浪费宝贵时间 · 售后没保障出了事没人管 · 小众目的地人身安全
+    <br><strong>信任来源：</strong>真实客户评价和案例（排名第一）· 朋友/圈内人推荐（排名第二）
+  </div>
+  <div class="page-num">2 / 9</div>
+</div>
+
+<!-- 第3页：行业分析 -->
+<div class="slide">
+  <div class="slide-title"><span class="num">02</span> 行业增长分析</div>
+  <div class="card-row">
+    <div class="card">
+      <h3>决策特征</h3>
+      <p>周期 2-4 周，男性偏理性，喜欢横向对比多家。但一旦认定，忠诚度极高，复购率远超女性用户。</p>
+    </div>
+    <div class="card blue">
+      <h3>信任门槛</h3>
+      <p>极高。高客单 + 小众目的地不确定性 + 人身安全顾虑 = 用户需要 3 次以上信任接触才可能咨询。</p>
+    </div>
+    <div class="card green">
+      <h3>内容蓝海</h3>
+      <p>男性高端旅行内容供给严重不足，目前几乎没有专业玩家。先入者获取流量成本极低，竞争为空白状态。</p>
+    </div>
+  </div>
+  <div class="section-label">最容易获得流量的 5 个内容切口</div>
+  <ol style="font-size:15px;line-height:2.0;padding-left:20px;">
+    <li><strong>身份标签共鸣：</strong>「精英男性的旅行方式，完全不同」— 用阶层标签精准吸引目标用户，建立"懂你"的第一印象</li>
+    <li><strong>直击核心恐惧：</strong>「小众目的地的真实安全评估（从业者说真话）」— 每个目的地做安全评测，这是用户最担心但从没人做的事</li>
+    <li><strong>价格透明拆解：</strong>「花 2 万定制游 vs 花 2 万自己订，逐项算笔账」— 用理性数据说服男性用户，消除"怕花冤枉钱"顾虑</li>
+    <li><strong>独家资源种草：</strong>「这 5 个地方，光靠自己根本去不了（附内部资源揭秘）」— 用稀缺性驱动咨询欲望</li>
+    <li><strong>专业人士背书：</strong>「做了 10 年高端定制，今天回答最常被问的 3 个问题」— 用时间+经验建立信任，不推销不自夸</li>
+  </ol>
+  <div class="highlight" style="margin-top:10px;">
+    <p>行业核心公式：专业评测（理性说服）+ 独家资源展示（欲望激发）+ 安全透明（信任建设）= 撬动男性高净值用户</p>
+  </div>
+  <div class="page-num">3 / 9</div>
+</div>
+
+<!-- 第4页：KOL 推荐 -->
+<div class="slide">
+  <div class="slide-title"><span class="num">03</span> KOL 推荐策略</div>
+  <div class="layout-left-right">
+    <div class="left">
+      <table>
+        <tr><th>达人类型</th><th>平台</th><th>粉丝量</th><th>合作形式</th><th style="text-align:center;">推荐</th></tr>
+        <tr><td><strong>户外探险 / 旅行专家</strong></td><td>抖音 + B站</td><td>10万 - 50万</td><td>线路体验 + 深度测评</td><td style="text-align:center;"><span class="star">★★★★★</span></td></tr>
+        <tr><td><strong>商业/财经/效率类博主</strong></td><td>抖音 + 知乎</td><td>5万 - 30万</td><td>定制旅行纪录片</td><td style="text-align:center;"><span class="star">★★★★☆</span></td></tr>
+        <tr><td><strong>汽车 / 自驾类达人</strong></td><td>抖音 + 视频号</td><td>10万 - 50万</td><td>线路合作 + 车旅融合</td><td style="text-align:center;"><span class="star">★★★★☆</span></td></tr>
+        <tr><td><strong>目的地当地专家</strong></td><td>小红书 + 抖音</td><td>1万 - 10万</td><td>目的地深度内容</td><td style="text-align:center;"><span class="star">★★★★☆</span></td></tr>
+        <tr><td><strong>老客户转介绍</strong></td><td>朋友圈/私域</td><td>人脉圈</td><td>推荐奖励机制</td><td style="text-align:center;"><span class="star">★★★★☆</span></td></tr>
+        <tr><td><strong>硬核旅行/生存类博主</strong></td><td>B站 + 抖音</td><td>20万 - 100万</td><td>极致体验评测</td><td style="text-align:center;"><span class="star">★★★☆☆</span></td></tr>
+      </table>
+    </div>
+    <div class="right">
+      <div class="card" style="margin-bottom:12px;">
+        <h3>不建议合作</h3>
+        <p style="font-size:14px;color:#c0392b;line-height:1.8;">✕ 美妆/穿搭/颜值博主 — 粉丝 90% 女性，完全错配<br>✕ 穷游/省钱类博主 — 与高端定位冲突，拉低品牌调性<br>✕ 纯打卡式旅行博主 — 显得浅薄，无法建立专业信任<br>✕ 粉丝 18-25 岁为主的博主 — 用户画像不匹配</p>
+      </div>
+      <div class="card blue">
+        <h3>为什么这样选</h3>
+        <p style="font-size:14px;color:#333;line-height:1.8;">35-50 岁男性最信任"专家"而非"网红"。户外探险、商业财经、汽车自驾类达人的粉丝画像天然匹配目标人群。知乎长文是男性高净值用户最重要的深度信任来源，一条高质量回答的长尾流量可持续 6 个月以上。</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num">4 / 9</div>
+</div>
+
+<!-- 第5页：内容策略 -->
+<div class="slide">
+  <div class="slide-title"><span class="num">04</span> 内容策略</div>
+  <div class="layout-left-right">
+    <div class="left">
+      <div class="highlight"><p>「帮精英男性用最短时间，体验别人到不了的世界」</p></div>
+      <div class="section-label">内容比例分配</div>
+      <div class="bar-wrap"><div class="bar-label">独家资源展示</div><div class="bar-track"><div class="bar-fill red" style="width:35%">35%</div></div></div>
+      <div class="bar-wrap"><div class="bar-label">专业评测拆解</div><div class="bar-track"><div class="bar-fill blue" style="width:25%">25%</div></div></div>
+      <div class="bar-wrap"><div class="bar-label">行业揭秘避坑</div><div class="bar-track"><div class="bar-fill green" style="width:25%">25%</div></div></div>
+      <div class="bar-wrap"><div class="bar-label">转化引导</div><div class="bar-track"><div class="bar-fill orange" style="width:15%">15%</div></div></div>
+      <div class="section-label">通用钩子开头</div>
+      <p style="font-size:14px;color:#555;line-height:2.0;">"做了 10 年高端定制，今天说点真话…"<br>"花 2 万定制游后，我最后悔的是…"<br>"90% 的人选高端旅行都会犯的致命错误"<br>"同样去 XX，为什么有人花 3 万有人花 15 万？"</p>
+    </div>
+    <div class="right">
+      <div class="section-label" style="margin-top:0;">10 个爆款内容方向</div>
+      <ol style="font-size:13px;line-height:2.1;padding-left:16px;">
+        <li><strong>独家资源揭秘：</strong>「99%的人不知道，这地方可以这么玩」</li>
+        <li><strong>价格逐项拆解：</strong>「一份20000元报价，每一分钱花在哪」</li>
+        <li><strong>行业内幕：</strong>「同样去非洲，为什么3万和15万天差地别」</li>
+        <li><strong>真实客户记录：</strong>「带客户走XX路线72小时全程实录」</li>
+        <li><strong>避坑指南：</strong>「高端定制最容易踩的5个坑」</li>
+        <li><strong>独家评测：</strong>「我们实测5个小众海岛，只有2个值得去」</li>
+        <li><strong>幕后过程：</strong>「从客户需求到最终方案，路线诞生全记录」</li>
+        <li><strong>错误示范：</strong>「你以为的高端定制，大概率是伪定制」</li>
+        <li><strong>专家视角：</strong>「做了10年定制游，说几个行业真相」</li>
+        <li><strong>用户故事：</strong>「一位42岁老板为什么每年固定找我们？」</li>
+      </ol>
+    </div>
+  </div>
+  <div class="page-num">5 / 9</div>
+</div>
+
+<!-- 第6页：爆款选题 -->
+<div class="slide">
+  <div class="slide-title"><span class="num">05</span> 爆款选题（20条具体标题）</div>
+  <div class="two-col">
+    <div>
+      <ol style="font-size:12px;line-height:2.2;padding-left:14px;">
+        <li>月薪 5 万和月薪 5 千的人，旅行的差别到底在哪？</li>
+        <li>花 2 万定制旅行 vs 花 2 万自己订，我逐项算了一笔账</li>
+        <li>40 岁的男人，值得一次真正像样的旅行</li>
+        <li>攻略做了 3 天，玩起来跟预想完全不一样——问题出在哪？</li>
+        <li>做了 10 年高端定制，告诉你什么叫真正的"独家资源"</li>
+        <li>去非洲 Safari，3 万的团和 15 万的团差距能有多大？</li>
+        <li>小众目的地安全评估：我们在 XX 踩过的真实风险（从业者说真话）</li>
+        <li>为什么越赚钱的人，越不自己规划旅行？一句话说清楚</li>
+        <li>高端定制游的"贵"，到底贵在哪？5 分钟给你彻底讲透</li>
+        <li>一位 42 岁老板的原话："我这辈子最怕的不是花钱，是花了钱还踩坑"</li>
+      </ol>
+    </div>
+    <div>
+      <ol start="11" style="font-size:12px;line-height:2.2;padding-left:14px;">
+        <li>带客户走 XX 路线的 72 小时全程纪录片——看完就懂什么是定制</li>
+        <li>花了 1.5 万在某平台订的"高端定制"，到现场直接傻眼了</li>
+        <li>同样是去冰岛看极光，为什么有人在暴风雪里等，有人泡着温泉喝着香槟看？</li>
+        <li>这个 45 岁的男人，连续 5 年每次旅行都找我们，他说了一句话让我记到现在</li>
+        <li>去日本玩深度 vs 玩表面，差距到底有多大？（附具体路线对比）</li>
+        <li>"我不在意预算，我在意体验值不值"——和 200 个定制客户聊出来的真相</li>
+        <li>帮你识破伪高端定制的 5 个信号（少一个都可能花冤枉钱）</li>
+        <li>去南美之前，这 3 个安全问题你一定要知道（从业者说真话）</li>
+        <li>从客户需求到出行方案：一条高端定制路线是怎么做出来的？内部全公开</li>
+        <li>如果你今年只计划一次家庭旅行，这条路线值得（附完整行程）</li>
+      </ol>
+    </div>
+  </div>
+  <div class="page-num">6 / 9</div>
+</div>
+
+<!-- 第7页：平台分发 -->
+<div class="slide">
+  <div class="slide-title"><span class="num">06</span> 平台分发建议</div>
+  <div class="platform-cards">
+    <div class="p-card dy">
+      <h3>抖音 · 核心获客阵地</h3>
+      <p><strong>定位</strong> 第一获客渠道，算法推荐的男性占比远高于其他平台</p>
+      <p><strong>形式</strong> 30-60 秒硬核口播 + 3-5 分钟深度 Vlog</p>
+      <p><strong>频率</strong> 每周 4-5 条，保持稳定更新</p>
+      <p style="font-size:12px;color:#333;margin-top:4px;"><strong>前三秒钩子示例：</strong><br>"花 2 万的定制游和自己订，差在哪？"<br>"如果你是个 40 岁的男人，这条视频建议看完"</p>
+    </div>
+    <div class="p-card zh">
+      <h3>知乎 · 信任建设核心</h3>
+      <p><strong>定位</strong> 男性高净值用户深度信任来源，一条回答长尾流量持续半年</p>
+      <p><strong>形式</strong> 深度行业问答 + 专栏文章 + 专业评测</p>
+      <p><strong>频率</strong> 每周 2-3 篇高质量回答</p>
+      <p style="font-size:12px;color:#333;margin-top:4px;">重点回答："定制旅行值得吗""高端旅行和跟团游差在哪""小众目的地真的安全吗"等搜索量大的问题</p>
+    </div>
+    <div class="p-card xhs">
+      <h3>小红书 · 辅助信任</h3>
+      <p><strong>定位</strong> 深度图文建立品质感，捕捉正在增长的男性用户</p>
+      <p><strong>形式</strong> 深度长文 + 客户案例 + 路线详解</p>
+      <p><strong>频率</strong> 每周 2-3 条高质量笔记</p>
+      <p style="font-size:12px;color:#e94560;margin-top:4px;">调性偏"专业深度长文"而非"种草风"，匹配男性阅读习惯</p>
+    </div>
+    <div class="p-card sph">
+      <h3>视频号 · 圈层裂变</h3>
+      <p><strong>定位</strong> 朋友圈裂变 + 老客户推荐，圈层信任最强</p>
+      <p><strong>形式</strong> 客户纪录片 + 直播分享</p>
+      <p><strong>频率</strong> 每周 1-2 条</p>
+      <p style="font-size:12px;color:#16a085;margin-top:4px;">靠老客户点赞转发朋友圈，男性圈层推荐效率极高</p>
+    </div>
+    <div class="p-card bili">
+      <h3>B站 · 深度品牌</h3>
+      <p><strong>定位</strong> 深度内容沉淀，男性占比极高，长尾搜索流量</p>
+      <p><strong>形式</strong> 15-30 分钟深度纪录片 / 路线评测</p>
+      <p><strong>频率</strong> 每周 1 条精品内容</p>
+      <p style="font-size:12px;color:#e67e22;margin-top:4px;">男性用户占比超 70%，内容生命周期远超短视频平台</p>
+    </div>
+    <div class="p-card siyu">
+      <h3>私域 · 成交闭环</h3>
+      <p><strong>加微信时机</strong> 抖音评论区问价 / 知乎私信 / 直播互动后 / 看了 3 篇以上内容</p>
+      <p><strong>引流话术</strong> "我发你详细行程+费用明细+3 条真实客户反馈，加个微信方便发你"</p>
+      <p><strong>承接动作</strong> 路线 PDF + 客户评价截图 + 30 秒语音自我介绍</p>
+    </div>
+  </div>
+  <div class="page-num">7 / 9</div>
+</div>
+
+<!-- 第8页：执行方案 -->
+<div class="slide">
+  <div class="slide-title"><span class="num">07</span> 执行方案 & 预算分配</div>
+  <div class="layout-left-right">
+    <div class="left">
+      <div class="timeline">
+        <div class="tl-item">
+          <h4>冷启动期（0 - 30 天）打好基础</h4>
+          <p>① 注册抖音 + 知乎 + 小红书 + 视频号 + B站，统一品牌视觉（头像/简介/封面风格一致）→ ② 准备 10 条种子内容（至少 5 条口播 + 3 条 Vlog + 2 篇知乎长文）→ ③ 抖音每天 1 条口播，知乎每天回答 1 个相关问题 → ④ 同时测试 5 种内容方向，重点看完播率和私信咨询量，第 2 周末砍掉表现差的 → ⑤ 搭建企业微信承接，设计"加好友送《高端定制避坑指南》"引流物料</p>
+        </div>
+        <div class="tl-item">
+          <h4>增长期（30 - 90 天）放大效果</h4>
+          <p>① 保留数据最好的 2-3 个内容方向，集中火力加大产出 → ② 预算 1-2 万，合作 1-2 个旅行/户外/商业类腰部达人（要求：全流程录像 + 真实体验 + 双平台发布）→ ③ 抖音开双号矩阵（1 个人设号 + 1 个内容号）→ ④ 每周 1 次主题直播"高端旅行如何避坑" → ⑤ 私域打标签分层（未出行/已咨询/已出行）→ ⑥ 每月 1 次朋友圈客户旅行分享</p>
+        </div>
+        <div class="tl-item">
+          <h4>转化阶段：从咨询到成交</h4>
+          <p>加微信 → 24h 内发路线 PDF + 3 段客户评价截图 + 30 秒语音自我介绍 → 需求诊断（"你平时喜欢什么类型的旅行？上次去了哪里？"）→ 推荐 1-2 条路线 + 详解 + 报价 → 主动说明安全/售后打消顾虑 → 诚实时间压力促单 → 出行后 3 天回访 + 请老客推荐朋友（下次享折扣）</p>
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <div class="section-label" style="margin-top:0;">预算分配建议</div>
+      <table>
+        <tr><th>预算</th><th>具体怎么花</th></tr>
+        <tr><td><strong>5,000 元</strong></td><td>全部投内容加热：抖音 dou+ 加热 2-3 条最好的口播视频 + 配合知乎高质量回答自然引流。产出 15-20 条内容，靠内容本身获取自然流量。</td></tr>
+        <tr><td><strong>10,000 元</strong></td><td>5,000 元投内容加热（dou+/聚光）+ 5,000 元合作 1 个旅行/户外腰部 KOL（线路体验 + 内容共创，产出 2-3 条优质内容）</td></tr>
+        <tr><td><strong>50,000 元</strong></td><td>15,000 元投内容加热 + 20,000 元合作 2-3 个腰部达人深度合作 + 10,000 元知乎精准信息流投放 + 5,000 元老客户推荐奖励基金。可覆盖 3 个月完整增长周期。</td></tr>
+      </table>
+      <div class="insight-box" style="margin-top:12px;">
+        <h3>关键提醒</h3>
+        <p>高客单产品的 ROI 不能用短期转化衡量。一条优质知乎回答可能 6 个月后还在带来咨询。把内容当资产，而不是当广告。</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-num">8 / 9</div>
+</div>
+
+<!-- 第9页：最终总结 -->
+<div class="slide slide-cover">
+  <div class="logo">ContentPilot · 核心建议</div>
+  <h1 style="font-size:32px;max-width:85%;line-height:1.4;">「如果你只做一件事」</h1>
+  <div style="margin-top:18px;max-width:80%;background:rgba(255,255,255,0.08);border-radius:12px;padding:24px;">
+    <p style="font-size:22px;line-height:1.8;opacity:0.95;font-weight:500;">
+      先做抖音 30 秒硬核拆解类口播内容
+    </p>
+  </div>
+  <div style="margin-top:22px;font-size:16px;opacity:0.7;max-width:78%;line-height:1.9;">
+    因为 35-50 岁男性在抖音上几乎看不到为他们量身定制的旅行内容 —— 供给侧完全空白。先入者的内容成本极低，一旦建立心智就等于垄断品类。每天一条 30 秒口播，坚持 30 天，你会看到完全不一样的结果。
+  </div>
+  <div class="footer">高端定制旅游 · 增长方案 · ContentPilot 出品</div>
+</div>
+
+</body>
+</html>
