@@ -299,9 +299,9 @@ question({
 
 ---
 
-### 第三步：生成可视化报告（必须执行）
+### 第三步：生成可视化报告（必须自动执行，无需用户再次要求）
 
-完成所有分析后，**必须**将全套方案生成为一个 HTML 可视化报告文件。
+**CRITICAL**：完成第二步全部 6 个板块分析后，**立即自动**将全套方案生成为 HTML 可视化报告文件。**不要在分析完成后停下来等待用户指令**，必须一气呵成完成分析 + 报告生成。
 
 #### 报告要求
 
@@ -342,80 +342,89 @@ question({
 <style>
   @page { size: A4; margin: 0; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1a1a2e; line-height: 1.6; }
-  .slide { width: 210mm; height: 297mm; margin: 10mm auto; padding: 20mm 15mm; page-break-after: always; position: relative; overflow: hidden; background: #fff; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1a1a2e; line-height: 1.7; }
+  .slide { width: 210mm; height: 297mm; margin: 6mm auto; padding: 12mm 14mm; page-break-after: always; position: relative; overflow: hidden; background: #fff; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
   .slide:last-child { page-break-after: auto; }
   
   /* 封面 */
   .slide-cover { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-  .slide-cover .logo { font-size: 14px; letter-spacing: 4px; opacity: 0.7; margin-bottom: 40px; text-transform: uppercase; }
-  .slide-cover h1 { font-size: 42px; font-weight: 800; margin-bottom: 16px; }
-  .slide-cover .subtitle { font-size: 20px; opacity: 0.85; margin-bottom: 40px; }
-  .slide-cover .meta { display: flex; gap: 40px; font-size: 14px; opacity: 0.7; }
-  .slide-cover .meta span { display: flex; flex-direction: column; }
-  .slide-cover .meta strong { font-size: 18px; color: #e94560; }
-  .slide-cover .footer { position: absolute; bottom: 20mm; font-size: 12px; opacity: 0.5; }
+  .slide-cover .logo { font-size: 16px; letter-spacing: 5px; opacity: 0.6; margin-bottom: 30px; text-transform: uppercase; }
+  .slide-cover h1 { font-size: 48px; font-weight: 800; margin-bottom: 14px; }
+  .slide-cover .subtitle { font-size: 22px; opacity: 0.85; margin-bottom: 32px; }
+  .slide-cover .meta { display: flex; gap: 50px; font-size: 16px; opacity: 0.7; }
+  .slide-cover .meta span { display: flex; flex-direction: column; align-items: center; }
+  .slide-cover .meta strong { font-size: 22px; color: #e94560; margin-bottom: 6px; }
+  .slide-cover .footer { position: absolute; bottom: 16mm; font-size: 13px; opacity: 0.45; }
   
   /* 通用 */
-  .slide-title { font-size: 28px; font-weight: 700; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 3px solid #e94560; display: flex; align-items: center; gap: 12px; }
-  .slide-title .num { background: #e94560; color: #fff; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
-  .page-num { position: absolute; bottom: 10mm; right: 15mm; font-size: 11px; color: #999; }
+  .slide-title { font-size: 30px; font-weight: 700; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 3px solid #e94560; display: flex; align-items: center; gap: 10px; }
+  .slide-title .num { background: #e94560; color: #fff; width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .page-num { position: absolute; bottom: 8mm; right: 12mm; font-size: 12px; color: #bbb; }
   
   /* 卡片 */
-  .card-row { display: flex; gap: 16px; margin-bottom: 20px; }
-  .card { flex: 1; background: #f8f9fa; border-radius: 12px; padding: 20px; border-left: 4px solid #e94560; }
-  .card h3 { font-size: 14px; color: #999; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
-  .card p, .card li { font-size: 13px; color: #333; }
-  .card ul { list-style: none; padding: 0; }
-  .card ul li::before { content: "▸ "; color: #e94560; }
+  .card-row { display: flex; gap: 14px; margin-bottom: 14px; }
+  .card { flex: 1; background: #f8f9fa; border-radius: 10px; padding: 18px; border-left: 4px solid #e94560; }
+  .card h3 { font-size: 13px; color: #999; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
+  .card p, .card li { font-size: 15px; color: #333; line-height: 1.8; }
   
   /* 表格 */
-  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
-  th { background: #1a1a2e; color: #fff; padding: 10px 12px; text-align: left; font-weight: 600; }
-  td { padding: 10px 12px; border-bottom: 1px solid #e8e8e8; }
-  tr:nth-child(even) td { background: #f8f9fa; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+  th { background: #1a1a2e; color: #fff; padding: 10px 12px; text-align: left; font-weight: 600; font-size: 13px; letter-spacing: 0.5px; }
+  td { padding: 10px 12px; border-bottom: 1px solid #eee; }
+  tr:nth-child(even) td { background: #fafafa; }
   
   /* 条形图 */
-  .bar-wrap { margin: 8px 0; display: flex; align-items: center; gap: 12px; }
-  .bar-label { width: 100px; font-size: 13px; text-align: right; flex-shrink: 0; }
-  .bar-track { flex: 1; height: 24px; background: #eee; border-radius: 12px; overflow: hidden; }
-  .bar-fill { height: 100%; border-radius: 12px; display: flex; align-items: center; justify-content: flex-end; padding-right: 10px; font-size: 12px; color: #fff; font-weight: 600; }
+  .bar-wrap { margin: 10px 0; display: flex; align-items: center; gap: 14px; }
+  .bar-label { width: 120px; font-size: 15px; text-align: right; flex-shrink: 0; color: #555; }
+  .bar-track { flex: 1; height: 28px; background: #eee; border-radius: 14px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 14px; display: flex; align-items: center; justify-content: flex-end; padding-right: 12px; font-size: 14px; color: #fff; font-weight: 600; }
   .bar-fill.red { background: #e94560; }
   .bar-fill.blue { background: #0f3460; }
   .bar-fill.green { background: #16a085; }
   .bar-fill.orange { background: #e67e22; }
   
   /* 标签 */
-  .tag { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; margin: 2px; }
+  .tag { display: inline-block; padding: 4px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; margin: 2px; }
   .tag-red { background: #fde8ec; color: #e94560; }
   .tag-blue { background: #e8ecf4; color: #0f3460; }
   .tag-green { background: #e8f6f3; color: #16a085; }
   
   /* 亮点引用 */
-  .highlight { background: linear-gradient(135deg, #ffe8ec, #fff5f7); border-radius: 12px; padding: 24px; text-align: center; margin: 20px 0; }
-  .highlight p { font-size: 22px; font-weight: 700; color: #e94560; font-style: italic; }
+  .highlight { background: linear-gradient(135deg, #fff0f0, #fff8f8); border-left: 4px solid #e94560; border-radius: 8px; padding: 20px 24px; margin: 14px 0; }
+  .highlight p { font-size: 22px; font-weight: 700; color: #e94560; }
   
   /* 时间轴 */
-  .timeline { position: relative; padding-left: 30px; }
-  .timeline::before { content: ""; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: #e94560; }
-  .tl-item { margin-bottom: 24px; position: relative; }
-  .tl-item::before { content: ""; position: absolute; left: -26px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: #e94560; border: 2px solid #fff; box-shadow: 0 0 0 2px #e94560; }
-  .tl-item h4 { font-size: 16px; margin-bottom: 4px; }
-  .tl-item p { font-size: 13px; color: #666; }
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before { content: ""; position: absolute; left: 7px; top: 0; bottom: 0; width: 2px; background: #e0e0e0; }
+  .tl-item { margin-bottom: 18px; position: relative; }
+  .tl-item::before { content: ""; position: absolute; left: -25px; top: 5px; width: 10px; height: 10px; border-radius: 50%; background: #e94560; border: 2px solid #fff; box-shadow: 0 0 0 2px #e94560; }
+  .tl-item h4 { font-size: 16px; margin-bottom: 3px; color: #1a1a2e; }
+  .tl-item p { font-size: 15px; color: #555; line-height: 1.8; }
+  
+  /* 列表 */
+  ol { font-size: 15px; line-height: 2.0; }
+  .content-list li { font-size: 15px; line-height: 2.2; }
   
   /* 两列 */
   .two-col { display: flex; gap: 20px; }
   .two-col > div { flex: 1; }
   
   /* 平台卡片 */
-  .platform-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .p-card { border-radius: 12px; padding: 20px; }
-  .p-card.xhs { background: #fff0f0; border: 1px solid #ffd0d0; }
-  .p-card.dy { background: #f0f0f0; border: 1px solid #ddd; }
-  .p-card.sph { background: #f0fff4; border: 1px solid #c8e6c9; }
-  .p-card.siyu { background: #f0f8ff; border: 1px solid #cce5ff; }
-  .p-card h3 { font-size: 16px; margin-bottom: 8px; }
-  .p-card p { font-size: 13px; color: #555; }
+  .platform-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .p-card { border-radius: 10px; padding: 18px; }
+  .p-card.xhs { background: #fff5f5; border: 1px solid #ffd4d4; }
+  .p-card.dy { background: #f8f8f8; border: 1px solid #e0e0e0; }
+  .p-card.sph { background: #f5fdf8; border: 1px solid #c8e6c9; }
+  .p-card.siyu { background: #f5f9ff; border: 1px solid #d0e3ff; }
+  .p-card.zh { background: #f6f8ff; border: 1px solid #d4deff; }
+  .p-card.bili { background: #fff8f5; border: 1px solid #ffe0d0; }
+  .p-card h3 { font-size: 17px; margin-bottom: 6px; }
+  .p-card p { font-size: 14px; color: #555; line-height: 1.9; }
+  
+  /* 洞察盒子 */
+  .insight-box { background: #1a1a2e; color: #fff; border-radius: 10px; padding: 18px 22px; margin: 14px 0; }
+  .insight-box h3 { font-size: 13px; opacity: 0.5; letter-spacing: 1px; margin-bottom: 6px; }
+  .insight-box p { font-size: 16px; line-height: 1.9; opacity: 0.95; }
   
   /* 打印样式 */
   @media print {
@@ -447,8 +456,8 @@ question({
     <div class="card"><h3>目标用户</h3><p>{{年龄}}岁 {{性别}}</p><p>{{城市}} · {{消费能力}}</p><p>痛点：{{害怕什么}}</p></div>
     <div class="card"><h3>商业目标</h3><p><span class="tag tag-red">{{商业目标}}</span></p><p>平均客单：{{客单价}}元</p><p>行业：{{所属行业}}</p></div>
   </div>
-  <h3 style="margin-top:20px;font-size:14px;color:#999;">购买驱动</h3>
-  <p style="font-size:15px;margin-top:8px;">用户买的是 <strong>{{购买原因}}</strong>，因为他们 <strong>{{解决什么问题}}</strong></p>
+  <h3 style="margin-top:20px;font-size:15px;color:#999;letter-spacing:1px;">购买驱动</h3>
+  <p style="font-size:16px;margin-top:8px;line-height:1.8;">用户买的是 <strong>{{购买原因}}</strong>，因为他们 <strong>{{解决什么问题}}</strong></p>
   <div class="page-num">2 / 9</div>
 </div>
 
@@ -461,8 +470,8 @@ question({
     <div class="card"><h3>信任门槛</h3><p>{{信任门槛}}</p></div>
     <div class="card"><h3>内容机会</h3><p>{{行业内容机会总结}}</p></div>
   </div>
-  <h3 style="margin-top:20px;font-size:14px;color:#999;">最容易获得流量的 5 个内容切口</h3>
-  <ol style="font-size:14px;line-height:2;padding-left:20px;">
+  <h3 style="margin-top:20px;font-size:15px;color:#999;letter-spacing:1px;">最容易获得流量的 5 个内容切口</h3>
+  <ol style="font-size:16px;line-height:2.2;padding-left:20px;">
     <li>{{内容切口1}}</li>
     <li>{{内容切口2}}</li>
     <li>{{内容切口3}}</li>
@@ -480,12 +489,12 @@ question({
     {{KOL表格行}}
   </table>
   <div style="margin-top:20px;">
-    <h3 style="font-size:14px;color:#999;margin-bottom:8px;">不建议合作</h3>
-    <p style="font-size:13px;">{{避坑达人类型}} — {{避坑原因}}</p>
+    <h3 style="font-size:15px;color:#999;letter-spacing:1px;margin-bottom:8px;">不建议合作</h3>
+    <p style="font-size:15px;">{{避坑达人类型}} — {{避坑原因}}</p>
   </div>
   <div style="margin-top:16px;">
-    <h3 style="font-size:14px;color:#999;margin-bottom:8px;">为什么这样选</h3>
-    <p style="font-size:13px;">{{选达人理由}}</p>
+    <h3 style="font-size:15px;color:#999;letter-spacing:1px;margin-bottom:8px;">为什么这样选</h3>
+    <p style="font-size:15px;">{{选达人理由}}</p>
   </div>
   <div class="page-num">4 / 9</div>
 </div>
@@ -494,13 +503,13 @@ question({
 <div class="slide">
   <div class="slide-title"><span class="num">04</span> 内容策略</div>
   <div class="highlight"><p>「{{内容定位一句话}}」</p></div>
-  <h3 style="font-size:14px;color:#999;">内容比例</h3>
+  <h3 style="font-size:15px;color:#999;letter-spacing:1px;">内容比例</h3>
   <div class="bar-wrap"><div class="bar-label">信任建立</div><div class="bar-track"><div class="bar-fill red" style="width:40%">40%</div></div></div>
   <div class="bar-wrap"><div class="bar-label">案例展示</div><div class="bar-track"><div class="bar-fill blue" style="width:30%">30%</div></div></div>
   <div class="bar-wrap"><div class="bar-label">专业科普</div><div class="bar-track"><div class="bar-fill green" style="width:20%">20%</div></div></div>
   <div class="bar-wrap"><div class="bar-label">转化内容</div><div class="bar-track"><div class="bar-fill orange" style="width:10%">10%</div></div></div>
-  <h3 style="font-size:14px;color:#999;margin-top:20px;">爆款方向 TOP 5</h3>
-  <ol style="font-size:13px;line-height:2.2;padding-left:20px;">
+  <h3 style="font-size:15px;color:#999;letter-spacing:1px;margin-top:20px;">爆款方向 TOP 5</h3>
+  <ol style="font-size:15px;line-height:2.4;padding-left:20px;">
     <li>{{方向1}}</li><li>{{方向2}}</li><li>{{方向3}}</li><li>{{方向4}}</li><li>{{方向5}}</li>
   </ol>
   <div class="page-num">5 / 9</div>
@@ -511,14 +520,14 @@ question({
   <div class="slide-title"><span class="num">05</span> 爆款选题</div>
   <div class="two-col">
     <div>
-      <ol style="font-size:13px;line-height:2.4;padding-left:18px;">
+      <ol style="font-size:15px;line-height:2.3;padding-left:18px;">
         <li>{{选题1}}</li><li>{{选题2}}</li><li>{{选题3}}</li><li>{{选题4}}</li>
         <li>{{选题5}}</li><li>{{选题6}}</li><li>{{选题7}}</li><li>{{选题8}}</li>
         <li>{{选题9}}</li><li>{{选题10}}</li>
       </ol>
     </div>
     <div>
-      <ol start="11" style="font-size:13px;line-height:2.4;padding-left:18px;">
+      <ol start="11" style="font-size:15px;line-height:2.3;padding-left:18px;">
         <li>{{选题11}}</li><li>{{选题12}}</li><li>{{选题13}}</li><li>{{选题14}}</li>
         <li>{{选题15}}</li><li>{{选题16}}</li><li>{{选题17}}</li><li>{{选题18}}</li>
         <li>{{选题19}}</li><li>{{选题20}}</li>
@@ -548,7 +557,7 @@ question({
     <div class="tl-item"><h4>增长期（30–90天）</h4><p>{{增长期步骤}}</p></div>
     <div class="tl-item"><h4>转化阶段</h4><p>{{转化步骤}}</p></div>
   </div>
-  <h3 style="font-size:14px;color:#999;margin-top:16px;">预算分配建议</h3>
+  <h3 style="font-size:15px;color:#999;letter-spacing:1px;margin-top:16px;">预算分配建议</h3>
   <table>
     <tr><th>预算</th><th>策略</th></tr>
     <tr><td>5000元</td><td>{{5000元策略}}</td></tr>
@@ -561,11 +570,11 @@ question({
 <!-- 第9页：最终总结 -->
 <div class="slide slide-cover">
   <div class="logo">ContentPilot · 核心建议</div>
-  <h1 style="font-size:32px;max-width:80%;line-height:1.4;">「如果你只做一件事」</h1>
+  <h1 style="font-size:36px;max-width:80%;line-height:1.4;">「如果你只做一件事」</h1>
   <div style="margin-top:30px;max-width:75%;">
-    <p style="font-size:18px;line-height:1.8;opacity:0.9;">{{核心建议一句话}}</p>
+    <p style="font-size:22px;line-height:1.8;opacity:0.9;">{{核心建议一句话}}</p>
   </div>
-  <div style="margin-top:40px;font-size:16px;opacity:0.8;">因为 {{核心原因}}</div>
+  <div style="margin-top:40px;font-size:18px;opacity:0.8;">因为 {{核心原因}}</div>
   <div class="footer">{{产品名称}} · 增长方案 · ContentPilot 出品</div>
 </div>
 
@@ -591,4 +600,4 @@ question({
 - 用表格、用步骤
 - 偏实战、偏增长、偏获客
 - 像一个年操盘千万营收的增长顾问
-- **分析完成后必须生成 HTML 可视化报告**
+- **分析完成后必须立即生成 HTML 可视化报告，不要等用户说"生成报告"**
