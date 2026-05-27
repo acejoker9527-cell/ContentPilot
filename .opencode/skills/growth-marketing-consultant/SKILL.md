@@ -340,10 +340,10 @@ question({
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>增长营销方案 - {{产品名称}}</title>
 <style>
-  @page { size: A4; margin: 0; }
+  @page { size: 297mm 210mm landscape; margin: 0; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1a1a2e; line-height: 1.7; }
-  .slide { width: 167mm; height: 297mm; margin: 0 auto; padding: 10mm 12mm; page-break-after: always; position: relative; overflow: hidden; background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+  .slide { width: 297mm; height: 167mm; margin: 0 auto; padding: 8mm 14mm; page-break-after: always; position: relative; overflow: hidden; background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
   .slide:last-child { page-break-after: auto; }
   
   /* 封面 */
