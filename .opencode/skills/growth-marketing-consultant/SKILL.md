@@ -343,7 +343,7 @@ question({
   @page { size: A4; margin: 0; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; color: #1a1a2e; line-height: 1.7; }
-  .slide { width: 210mm; height: 297mm; margin: 6mm auto; padding: 12mm 14mm; page-break-after: always; position: relative; overflow: hidden; background: #fff; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+  .slide { width: 167mm; height: 297mm; margin: 0 auto; padding: 10mm 12mm; page-break-after: always; position: relative; overflow: hidden; background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
   .slide:last-child { page-break-after: auto; }
   
   /* 封面 */
