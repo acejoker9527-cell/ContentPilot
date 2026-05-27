@@ -2,21 +2,28 @@
 
 增长营销顾问 AI Skill — 根据产品信息、行业、目标受众、价格带和商业目标，输出 KOL 推荐、内容策略、平台分发等可执行增长方案。
 
-## 安装使用
+## 安装
 
-将仓库克隆到本地，把 `SKILL.md` 放到 OpenCode 的 skills 目录：
+### 方式一：一行命令安装（全局可用）
 
-```
-# 项目级（团队成员共享）
-mkdir -p 你的项目/.opencode/skills/growth-marketing-consultant
-cp .opencode/skills/growth-marketing-consultant/SKILL.md 你的项目/.opencode/skills/growth-marketing-consultant/
-
-# 全局（个人使用）
-mkdir -p ~/.config/opencode/skills/growth-marketing-consultant
-cp .opencode/skills/growth-marketing-consultant/SKILL.md ~/.config/opencode/skills/growth-marketing-consultant/
+**macOS / Linux：**
+```bash
+mkdir -p ~/.config/opencode/skills/growth-marketing-consultant && curl -fsSL -o ~/.config/opencode/skills/growth-marketing-consultant/SKILL.md https://raw.githubusercontent.com/acejoker9527-cell/ContentPilot/master/.opencode/skills/growth-marketing-consultant/SKILL.md
 ```
 
-重启 OpenCode，输入 `/skill growth-marketing-consultant` 即可加载。
+**Windows PowerShell：**
+```powershell
+New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.config\opencode\skills\growth-marketing-consultant"; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/acejoker9527-cell/ContentPilot/master/.opencode/skills/growth-marketing-consultant/SKILL.md" -OutFile "$env:USERPROFILE\.config\opencode\skills\growth-marketing-consultant\SKILL.md"
+```
+
+### 方式二：Git Clone（项目级，团队共享）
+
+```bash
+git clone https://github.com/acejoker9527-cell/ContentPilot.git
+cp -r ContentPilot/.opencode/skills/* 你的项目/.opencode/skills/
+```
+
+安装完成后重启 OpenCode，输入 `/skill growth-marketing-consultant` 即可加载。
 
 ## 功能
 
